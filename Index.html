@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff5c8a">
+  <title>For Angry Ashfia ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: Arial, "Segoe UI", sans-serif;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.25), transparent 28%),
+        radial-gradient(circle at 80% 10%, rgba(255,190,220,.25), transparent 30%),
+        linear-gradient(135deg, #ff5f8f 0%, #ff7eb3 45%, #b86cff 100%);
+      position: relative;
+    }
+
+    .glow {
+      position: fixed;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+      filter: blur(8px);
+      pointer-events: none;
+    }
+
+    .glow.one { top: -100px; left: -100px; }
+    .glow.two { bottom: -120px; right: -80px; }
+
+    .card {
+      width: min(680px, 100%);
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      padding: 38px 28px 30px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 30px;
+      background: rgba(255,255,255,.16);
+      box-shadow: 0 25px 70px rgba(75, 0, 50, .28);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .main-heart {
+      font-size: 64px;
+      line-height: 1;
+      display: inline-block;
+      animation: beat 1.35s infinite;
+      filter: drop-shadow(0 8px 12px rgba(80,0,40,.2));
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.18); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.12); }
+    }
+
+    h1 {
+      margin-top: 14px;
+      font-size: clamp(34px, 8vw, 58px);
+      line-height: 1.05;
+      text-shadow: 0 4px 18px rgba(80,0,40,.25);
+    }
+
+    .subtitle {
+      margin-top: 12px;
+      font-size: 16px;
+      opacity: .95;
+    }
+
+    .message-box {
+      margin: 28px auto 22px;
+      max-width: 570px;
+      min-height: 285px;
+      padding: 24px 20px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #message {
+      white-space: pre-line;
+      font-size: clamp(16px, 3.8vw, 19px);
+      line-height: 1.8;
+      text-shadow: 0 2px 6px rgba(80,0,40,.18);
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      margin-left: 3px;
+      background: #fff;
+      vertical-align: -2px;
+      animation: blink .75s infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 22px;
+      min-width: 190px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+      box-shadow: 0 10px 24px rgba(80,0,40,.20);
+    }
+
+    button:hover {
+      transform: translateY(-3px) scale(1.03);
+    }
+
+    button:active {
+      transform: scale(.97);
+    }
+
+    .primary {
+      background: #fff;
+      color: #f04478;
+    }
+
+    .secondary {
+      background: rgba(255,255,255,.18);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.35);
+    }
+
+    .footer {
+      margin-top: 22px;
+      font-size: 13px;
+      opacity: .78;
+    }
+
+    .floating-heart {
+      position: fixed;
+      bottom: -40px;
+      left: 0;
+      z-index: 1;
+      pointer-events: none;
+      user-select: none;
+      animation: floatUp linear forwards;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% { opacity: .9; }
+      100% {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .burst {
+      position: fixed;
+      z-index: 20;
+      pointer-events: none;
+      font-size: 24px;
+      animation: burst 1.25s ease-out forwards;
+    }
+
+    @keyframes burst {
+      from {
+        transform: translate(-50%, -50%) scale(.5);
+        opacity: 1;
+      }
+      to {
+        transform:
+          translate(
+            calc(-50% + var(--dx)),
+            calc(-50% + var(--dy))
+          )
+          scale(1.25);
+        opacity: 0;
+      }
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 28px;
+      z-index: 30;
+      transform: translate(-50%, 120px);
+      width: min(92%, 430px);
+      padding: 15px 20px;
+      border-radius: 18px;
+      text-align: center;
+      background: rgba(50, 0, 30, .78);
+      box-shadow: 0 15px 40px rgba(0,0,0,.25);
+      backdrop-filter: blur(10px);
+      transition: transform .35s ease;
+      font-size: 15px;
+    }
+
+    .toast.show {
+      transform: translate(-50%, 0);
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 14px;
+      }
+
+      .card {
+        padding: 30px 17px 24px;
+        border-radius: 24px;
+      }
+
+      .main-heart {
+        font-size: 54px;
+      }
+
+      .message-box {
+        min-height: 300px;
+        padding: 20px 15px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+
+  <main class="card">
+    <div class="main-heart" aria-hidden="true">❤️</div>
+
+    <h1>For Angry Ashfia</h1>
+
+    <p class="subtitle">
+      A little something I wanted to say.
+    </p>
+
+    <section class="message-box" aria-live="polite">
+      <div>
+        <span id="message"></span><span class="cursor" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <div class="buttons">
+      <button class="primary" type="button" onclick="textMeBack()">
+        Please Text Me Back
+      </button>
+
+      <button class="secondary" type="button" onclick="forgiveMe()">
+        I'll Make It Up To You
+      </button>
+    </div>
+
+    <p class="footer">For Ashfia, with love.</p>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <script>
+    // The message displayed with the typewriter effect.
+    const message = `I know you're angry.
+
+I'm sorry.
+
+I hope you can forgive me.
+
+When you're ready, text me back.
+
+I'll make it up to you.`;
+
+    const messageElement = document.getElementById("message");
+    let characterIndex = 0;
+
+    function typeMessage() {
+      if (characterIndex < message.length) {
+        messageElement.textContent += message.charAt(characterIndex);
+        characterIndex++;
+        setTimeout(typeMessage, 32);
+      }
+    }
+
+    setTimeout(typeMessage, 700);
+
+    // Floating hearts.
+    const heartCharacters = ["♥", "♡", "❤"];
+
+    function createFloatingHeart() {
+      const heart = document.createElement("div");
+      heart.className = "floating-heart";
+      heart.textContent =
+        heartCharacters[Math.floor(Math.random() * heartCharacters.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (14 + Math.random() * 22) + "px";
+      heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 11000);
+    }
+
+    setInterval(createFloatingHeart, 500);
+
+    // Small heart explosion.
+    function heartExplosion(x, y) {
+      for (let i = 0; i < 32; i++) {
+        const heart = document.createElement("span");
+        heart.className = "burst";
+        heart.textContent =
+          heartCharacters[Math.floor(Math.random() * heartCharacters.length)];
+
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 70 + Math.random() * 230;
+
+        heart.style.left = x + "px";
+        heart.style.top = y + "px";
+        heart.style.setProperty("--dx", Math.cos(angle) * distance + "px");
+        heart.style.setProperty("--dy", Math.sin(angle) * distance + "px");
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 1300);
+      }
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById("toast");
+      toast.textContent = text;
+      toast.classList.add("show");
+
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3200);
+    }
+
+    function buttonCenter(event) {
+      const rect = event.currentTarget.getBoundingClientRect();
+      return {
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2
+      };
+    }
+
+    function textMeBack(event) {
+      const position = buttonCenter(event);
+      heartExplosion(position.x, position.y);
+
+      showToast(
+        "Whenever you're ready, I'd love to hear from you."
+      );
+    }
+
+    function forgiveMe(event) {
+      const position = buttonCenter(event);
+      heartExplosion(position.x, position.y);
+
+      showToast(
+        "I'll do my best to make things right."
+      );
+    }
+  </script>
+</body>
+</html>
